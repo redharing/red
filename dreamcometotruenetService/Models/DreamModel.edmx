@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dreambecometrueDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="dreambecometrueDBModelStoreContainer">
+          <EntitySet Name="Dream" EntityType="dreambecometrueDBModel.Store.Dream" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DreamCategory" EntityType="dreambecometrueDBModel.Store.DreamCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="dreambecometrueDBModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserDream" EntityType="dreambecometrueDBModel.Store.UserDream" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserFinance" EntityType="dreambecometrueDBModel.Store.UserFinance" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Dream">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Value" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="DreamCateId" Type="int" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" />
+        </EntityType>
+        <EntityType Name="DreamCategory">
+          <Key>
+            <PropertyRef Name="DreamCateID" />
+          </Key>
+          <Property Name="DreamCateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DreamCateName" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="IsEnable" Type="bit" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="IMEI" Type="varchar" MaxLength="15" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserDream">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="DreamId" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DreamId" Type="int" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserFinance">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MonthlyIncome" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="MonthlyExpenses" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dreambecometrueDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dreambecometrueDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Dreams" EntityType="dreambecometrueDBModel.Dream" />
+          <EntitySet Name="DreamCategories" EntityType="dreambecometrueDBModel.DreamCategory" />
+          <EntitySet Name="Users" EntityType="dreambecometrueDBModel.User" />
+          <EntitySet Name="UserDreams" EntityType="dreambecometrueDBModel.UserDream" />
+          <EntitySet Name="UserFinances" EntityType="dreambecometrueDBModel.UserFinance" />
+        </EntityContainer>
+        <EntityType Name="Dream">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Value" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="DreamCateId" Type="Int32" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DreamCategory">
+          <Key>
+            <PropertyRef Name="DreamCateID" />
+          </Key>
+          <Property Name="DreamCateID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DreamCateName" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="IsEnable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="IMEI" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserDream">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="DreamId" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DreamId" Type="Int32" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UserFinance">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MonthlyIncome" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="MonthlyExpenses" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dreambecometrueDBModelStoreContainer" CdmEntityContainer="dreambecometrueDBEntities">
+          <EntitySetMapping Name="Dreams">
+            <EntityTypeMapping TypeName="dreambecometrueDBModel.Dream">
+              <MappingFragment StoreEntitySet="Dream">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DreamCateId" ColumnName="DreamCateId" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DreamCategories">
+            <EntityTypeMapping TypeName="dreambecometrueDBModel.DreamCategory">
+              <MappingFragment StoreEntitySet="DreamCategory">
+                <ScalarProperty Name="DreamCateID" ColumnName="DreamCateID" />
+                <ScalarProperty Name="DreamCateName" ColumnName="DreamCateName" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="dreambecometrueDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="IMEI" ColumnName="IMEI" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDreams">
+            <EntityTypeMapping TypeName="dreambecometrueDBModel.UserDream">
+              <MappingFragment StoreEntitySet="UserDream">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DreamId" ColumnName="DreamId" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserFinances">
+            <EntityTypeMapping TypeName="dreambecometrueDBModel.UserFinance">
+              <MappingFragment StoreEntitySet="UserFinance">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="MonthlyIncome" ColumnName="MonthlyIncome" />
+                <ScalarProperty Name="MonthlyExpenses" ColumnName="MonthlyExpenses" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,16 +1,16 @@
 $(function () {
     // This MobileServiceClient has been configured to communicate with your local
     // test project for debugging purposes.
-    var client = new WindowsAzure.MobileServiceClient(
-        "http://localhost:59988"
-    );
+    //var client = new WindowsAzure.MobileServiceClient(
+    //    "http://localhost:59988"
+    //);
 
     // This MobileServiceClient has been configured to communicate with your Mobile Service's url
     // and application key. You're all set to start working with your Mobile Service!
-    //var client = new WindowsAzure.MobileServiceClient(
-    //    "https://dreamcometotruenet.azure-mobile.net/",
-    //    "kpozcnwClbMKhhyronZDGASdTvvKgB77"
-    //);
+    var client = new WindowsAzure.MobileServiceClient(
+        "https://dreamcometotruenet.azure-mobile.net/",
+        "kpozcnwClbMKhhyronZDGASdTvvKgB77"
+    );
 
     var todoItemTable = client.getTable('todoitem');
 
