@@ -191,39 +191,11 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
+    <Compile Include="Controllers\User2Controller.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
-    <Compile Include="Models\Dream.cs">
-      <DependentUpon>DreamModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DreamCategory.cs">
-      <DependentUpon>DreamModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DataObjects\User.cs" />
     <Compile Include="Models\dreamcometotruenetContext.cs" />
-    <Compile Include="Models\DreamModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DreamModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DreamModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DreamModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DreamModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DreamModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>DreamModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserDream.cs">
-      <DependentUpon>DreamModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserFinance.cs">
-      <DependentUpon>DreamModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="ScheduledJobs\SampleJob.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,27 +213,6 @@
     </Content>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Models\DreamModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DreamModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\DreamModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DreamModel.edmx</DependentUpon>
-      <LastGenOutput>DreamModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DreamModel.edmx.diagram">
-      <DependentUpon>DreamModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\DreamModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DreamModel.edmx</DependentUpon>
-      <LastGenOutput>DreamModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

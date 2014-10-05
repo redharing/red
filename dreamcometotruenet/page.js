@@ -13,11 +13,27 @@ $(function () {
     );
 
     var todoItemTable = client.getTable('todoitem');
+    //var userTable = client('user');
+
+    
 
     // Read current data and rebuild UI.
     // If you plan to generate complex UIs like this, consider using a JavaScript templating library.
     function refreshTodoItems() {
         var query = todoItemTable.where({ complete: false });
+
+
+        client.invokeApi("user", {
+            body: null,
+            method: "get"
+        }).done(function (results) {
+            alert(results);
+        }, function (error) {
+            var dialog = new Windows.UI.Popups
+                .MessageDialog(error.message);
+            dialog.commands.append(okCommand);
+            dialog.showAsync().done();
+        });
 
         query.read().then(function (todoItems) {
             var listItems = $.map(todoItems, function (item) {
